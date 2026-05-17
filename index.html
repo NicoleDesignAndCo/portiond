@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<script async src="https://tally.so/widgets/embed.js"></script>
 <style>
   /* ---------- tokens ---------- */
   :root {
@@ -74,15 +75,18 @@
     display: flex; align-items: center; justify-content: space-between;
   }
   .logo {
-    display: inline-flex; align-items: center; gap: 9px;
+    display: inline-flex; align-items: center;
     font-weight: 600; font-size: 16px; letter-spacing: -0.01em;
   }
   .logo__mark {
-    width: 26px; height: 26px;
+    width: 34px; height: 34px;
     display: inline-flex; align-items: center; justify-content: center;
     flex-shrink: 0;
   }
-  .logo__mark svg { width: 24px; height: 24px; display: block; }
+  .logo__mark img {
+    width: 36px; height: 36px;
+    display: block;
+  }
   .nav__cta {
     background: var(--blue-500);
     color: white;
@@ -254,6 +258,10 @@
     box-shadow: var(--shadow-md);
     max-width: 320px;
     letter-spacing: -0.005em;
+    transition: transform .3s ease;
+  }
+  .bubble:hover {
+    transform: rotate(0deg) translateY(-3px);
   }
   .bubble::before {
     content: "";
@@ -272,6 +280,7 @@
     color: var(--ink-400);
     margin-top: 6px;
     font-family: 'Geist Mono', ui-monospace, monospace;
+    transition: color .3s ease, transform .3s ease;
   }
   .bubble--b1 { top: 0;    left: 6%;    transform: rotate(-2deg); }
   .bubble--b2 { top: 30px; right: 4%;   transform: rotate(1.5deg); }
@@ -556,12 +565,10 @@
 <nav class="nav">
   <div class="container nav__inner">
     <a href="#" class="logo">
-      <span class="logo__mark">
-        <svg><use href="#portiond-mark"/></svg>
-      </span>
+      <img src="portiond.svg" alt="Portiond logo" width="48" height="48" />
       <span>Portiond</span>
     </a>
-    <a href="#waitlist" class="nav__cta">Join waitlist</a>
+    <a class="nav__cta" href="#tally-open=GxqLDQ&tally-hide-title=1&tally-emoji-text=👋&tally-emoji-animation=wave">Join waitlist</a>
   </div>
 </nav>
 
@@ -580,13 +587,11 @@
       Create a simple payment link for your group and instantly track who's paid and confirmed.
       Perfect for pickup sports, fitness classes, golf tee times, and recurring community activities.
     </p>
-    <form class="waitlist" onsubmit="event.preventDefault();">
-      <input type="email" class="waitlist__input" placeholder="Enter your email" autocomplete="email" />
-      <button type="submit" class="waitlist__btn">
-        Join waitlist
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-      </button>
-    </form>
+
+    <button type="submit" class="waitlist__btn" data-tally-open="GxqLDQ" data-tally-hide-title="1" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">
+      Join waitlist
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </button>
     <p class="hero__note">Built for organizers tired of tracking e-transfers in group chats.</p>
   </div>
 </section>
@@ -758,13 +763,11 @@
       <div class="cta-banner__inner">
         <h2>Get early access.</h2>
         <p>We're currently building the MVP and looking for early organizers to try it first.</p>
-        <form class="waitlist waitlist--dark" onsubmit="event.preventDefault();">
-          <input type="email" class="waitlist__input" placeholder="Enter your email" autocomplete="email" />
-          <button type="submit" class="waitlist__btn">
-            Join waitlist
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </button>
-        </form>
+
+        <button class="waitlist__btn" data-tally-open="GxqLDQ" data-tally-hide-title="1" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">
+          Join waitlist
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
       </div>
     </div>
     <p class="cta-note">Simple pricing for early organizers — details coming soon.</p>
@@ -776,16 +779,10 @@
   <div class="container footer__inner">
     <div class="footer__brand">
       <a href="#" class="logo">
-        <span class="logo__mark">
-          <svg><use href="#portiond-mark"/></svg>
-        </span>
+        <img src="portiond.svg" alt="Portiond logo" width="48" height="48" />
         <span>Portiond</span>
       </a>
       <p class="footer__tag">Built for casual group organizers.</p>
-    </div>
-    <div class="footer__social">
-      <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.42 8.48L23 22h-6.91l-5.41-7.09L4.5 22H1.24l7.94-9.08L1 2h7.09l4.9 6.48L18.244 2zm-1.21 18.4h1.81L7.06 3.5H5.13L17.03 20.4z"/></svg></a>
-      <a href="/cdn-cgi/l/email-protection#6008050c0c0f20100f1214090f0e044e011010" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
     </div>
   </div>
 </footer>
